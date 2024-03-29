@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<div class="overlay hidden"></div>
+	<!-- <div class="overlay hidden"></div>
 	<div class="modal hidden">
 		<div class="flex">
 			<video id="video" width="100%" height="100%" controls>
@@ -44,7 +44,7 @@
 				</video>
 			<button class="btn-close">⨉</button>
 		</div>
-	</div>
+	</div> -->
 	
 	<header class="header-hero">
 		<div class="main-nav">
@@ -99,7 +99,7 @@
 					<div class="col-sm-6">
 						<div class="title-container d-none d-md-block">
 							<h1 class="h1-header">ваш личный<br /> планировщик<br /> путешествий<br /> на базе ИИ</h1>
-							<button class="btn btn-lg btn-open">смотреть видео <svg fill="#000000" height="22px" width="22px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+							<button class="btn btn-lg btn-open" data-bs-toggle="modal" data-bs-target="#exampleModal">смотреть видео <svg fill="#000000" height="22px" width="22px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 								viewBox="0 0 60 60" xml:space="preserve">
 						   <g>
 							   <path d="M45.563,29.174l-22-15c-0.307-0.208-0.703-0.231-1.031-0.058C22.205,14.289,22,14.629,22,15v30
@@ -109,6 +109,10 @@
 								   S14.561,2,30,2s28,12.561,28,28S45.439,58,30,58z"/>
 						   </g>
 						   </svg></button>
+						   <!-- Button trigger modal -->
+						<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+							Launch demo modal
+						</button> -->
 						</div>
 						<!-- <div class="title-container text-center d-md-none">
 							<h2 class="h1-header">Танцевать <br>просто с нами</h2>
@@ -453,6 +457,20 @@
 			<p class="mb-1">© 2024 все права защищены</p>
 		</div>
 	</footer>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		  <div class="modal-content">
+			<video id="video" width="100%" height="100%" controls>
+			<source src="./images/ai-voyage.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+			<button class="btn-close">⨉</button>
+		  </div>
+		</div>
+	</div>
+
 	<script>
 		const video = document.querySelector("#video");
 
@@ -462,26 +480,37 @@
 			video.currentTime = 0;
 		}
 
-		const modal = document.querySelector(".modal");
-		const overlay = document.querySelector(".overlay");
-		const openModalBtn = document.querySelector(".btn-open");
+		// const modal = document.querySelector(".modal");
+		// const overlay = document.querySelector(".overlay");
+		// const openModalBtn = document.querySelector(".btn-open");
 		const closeModalBtn = document.querySelector(".btn-close");
 	
-		const openModal = function () {
-			modal.classList.remove("hidden");
-			overlay.classList.remove("hidden");
-		};
+		// const openModal = function () {
+		// 	modal.classList.remove("hidden");
+		// 	overlay.classList.remove("hidden");
+		// };
 	
-		openModalBtn.addEventListener("click", openModal);
-	
+		// openModalBtn.addEventListener("click", openModal);
+
 		const closeModal = function () {
-			modal.classList.add("hidden");
-			overlay.classList.add("hidden");
+			// modal.classList.add("hidden");
+			// overlay.classList.add("hidden");
 			pause()
 		};
+
+		var myModalEl = document.getElementById('exampleModal')
+
+		var myModal = new bootstrap.Modal(myModalEl, {
+  			keyboard: false
+		})
+
+		myModalEl.addEventListener('hide.bs.modal', function (event) {
+			console.log('closed')
+			closeModal()
+		})
 	
-		closeModalBtn.addEventListener("click", closeModal);
-		overlay.addEventListener("click", closeModal);
+		closeModalBtn.addEventListener("click", () => myModal.hide());
+		// overlay.addEventListener("click", closeModal);
 	</script>
 </body>
 </html>

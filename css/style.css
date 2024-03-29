@@ -658,13 +658,12 @@ footer {
     z-index: 9999;
 } */
 
-.modal {
+/* .modal {
     display: flex;
     gap: 0.4rem;
     padding: 1.3rem;
     width: 1080px;
     height: 720px;
-    /* position: absolute; */
     top: 13%;
     left: 15%;
     background-color: white;
@@ -677,11 +676,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
-.hidden {
+/* .hidden {
     display: none;
-}
+} */
 
 .btn-close {
     transform: translate(10px, -20px);
@@ -694,7 +693,7 @@ footer {
     right: 20px;
 }
 
-.overlay {
+/* .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -705,7 +704,7 @@ footer {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     z-index: 999;
-}
+} */
 
 @media (max-width: 575.98px) { 
 
